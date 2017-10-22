@@ -1,0 +1,32 @@
+import { Component, ILogger, IConfigReader } from 'merapi';
+import { SecondComponent } from './second_component';
+
+export default class FirstComponent extends Component {
+
+    private secretAdb: string;
+
+	constructor(
+		private logger: ILogger,
+        private config: IConfigReader,
+        private secondComponent: SecondComponent
+        ) {
+		super();
+
+	}
+	start(args: string[]): any {
+		this.logger.log(`${this.config('greeting')} ${args[2]} ${this.secondComponent.percobaanPertama(5, 2)}`);
+    }
+    
+    public sakKarep(req: any, res: any): any{
+        return res.json({"isi": "Halooo"});
+    }
+
+    public sakKarepDua(req: any, res: any): any{
+        return res.json({"ini": "privat"});
+    }
+
+    public sakKarepTelu(): any{
+        
+        return "String biasa";
+    }
+}

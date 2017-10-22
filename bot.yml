@@ -1,0 +1,30 @@
+# Kata ML Schema definition
+schema: kata.ai/schema/kataml/1.0
+
+# Bot Name
+name: test-bot
+# Bot Description
+desc: Some Bot
+# Bot Language
+lang: id
+
+# Flow Definition
+flows:
+    # Flow name and Definition
+    someFlow:
+        # You can include other files by using $include directive
+        intents:  $include(./some/path)
+
+# Method definitions
+methods:
+    # Method definition in javascript
+    someMethod(x): x*x
+
+# NLU definition
+nlus:
+    # Define NLU to be used in this bot
+    someNlu: ...
+
+# Config
+config:
+    # Free to define your nested configuration
